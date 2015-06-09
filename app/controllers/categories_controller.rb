@@ -47,6 +47,6 @@ class CategoriesController < ApplicationController
     end
 
     def check_admin
-      redirect_to new_user_session_url if !current_user.admin?
+      redirect_to new_user_session_url unless current_user.admin?
     end
 end
