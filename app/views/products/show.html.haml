@@ -23,9 +23,7 @@
 
 = render reviews
 
-%h3 Compose new review
-
-= render 'reviews/form'
+= link_to 'Add review', new_category_product_review_path(category.id, product.id), class: "btn btn-success", role: "button"
 
 
 
