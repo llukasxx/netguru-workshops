@@ -21,6 +21,8 @@ gem 'ffaker'
 gem 'konf'
 gem 'byebug'
 
+gem 'rails_12factor', group: :production
+
 group :development do
   gem 'spring'
 end
