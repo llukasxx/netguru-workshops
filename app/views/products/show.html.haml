@@ -15,11 +15,17 @@
   %b Category
   = product.category.name
 
-%h3 Reviews
-= render 'reviews/form'
-
-= render reviews
-
 = link_to 'Edit', edit_category_product_path(category.id, product.id)
 \|
 = link_to 'Back', category_products_path, class: 'btn btn-primary'
+
+%h3 Reviews
+
+= render reviews
+
+%h3 Compose new review
+
+= render 'reviews/form'
+
+
+
