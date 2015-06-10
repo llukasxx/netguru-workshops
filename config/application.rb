@@ -6,6 +6,8 @@ require File.expand_path('../preinitializer', __FILE__)
 
 Bundler.require(*Rails.groups)
 
+config.serve_static_assets = true
+
 module Workshops
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
