@@ -1,3 +1,7 @@
 %h3 Compose new review
 
 = render 'reviews/form'
+
+%br
+
+= link_to "Back", category_product_path(category.id, product.id), class: "btn btn-primary", role: "button"
