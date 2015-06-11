@@ -1,8 +1,6 @@
 module ApplicationHelper
   def is_admin?(user)
-    if !user.nil? 
-      user.admin?
-    end
+    user.admin? unless user.nil?
   end
 
   def is_owner?(user, product)
