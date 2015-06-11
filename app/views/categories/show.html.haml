@@ -8,10 +8,8 @@
   - category.products.each do |product|
     = link_to(product.title, category_product_path(product.category, product)) 
 
-%p
-  %h3 New product
-  = render 'products/form'
+= link_to 'New product', new_category_product_path(category), class: "btn btn-success", role: "button"
+%br
+%br
 
-= link_to 'Edit', edit_category_path(category)
-\|
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+= link_to 'Back', categories_path, class: 'btn btn-primary', role: "button"
