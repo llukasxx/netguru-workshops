@@ -8,11 +8,12 @@ describe Review do
     it { should belong_to :user }
   end
 
-  describe 'assignments' do
+  describe 'assignment' do
     let(:user)    { create(:user) }
     let(:product)    { create(:product) }
     it "has proper user" do
-      review = user.reviews.create(content: "Very bad thing", product_id: product.id)
+      review = user.reviews.build(content: "Very bad thing", rating: 1, 
+                                  product_id: product.id)
       expect(review.user_id).to eq user.id
     end
   end

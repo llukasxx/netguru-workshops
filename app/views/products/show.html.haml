@@ -14,10 +14,10 @@
 %p
   %b Category
   = product.category.name
-
-= link_to 'Edit', edit_category_product_path(category.id, product.id)
-\|
-= link_to 'Back', category_products_path, class: 'btn btn-primary'
+-if is_owner?(current_user, product)
+  = link_to 'Edit', edit_category_product_path(category.id, product.id), class: "btn btn-warning", role: "button"
+  \|
+= link_to 'Back', category_products_path, class: 'btn btn-primary', role: "button"
 
 %h3 Reviews
 
