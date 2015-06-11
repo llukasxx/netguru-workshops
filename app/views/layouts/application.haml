@@ -17,7 +17,7 @@
         #bs-example-navbar-collapse-1.collapse.navbar-collapse.navbar-right
           %ul.nav.navbar-nav
             %li
-              =link_to "All users", '#'
+              =link_to "All users", all_users_path
             -if user_signed_in?
               %li.dropdown
                 %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -27,7 +27,7 @@
                   %li
                     =link_to "Settings", edit_user_registration_path
                   %li
-                    =link_to "My profile", '#'
+                    =link_to "My profile", profile_path(current_user)
                   %li.divider
                   %li
                     =link_to "Sign out", destroy_user_session_path, method: :delete
