@@ -1,35 +1,37 @@
 .row
-  .col-md-12
+  .col-md-4
     .panel.panel-primary
-      .panel-heading.bolder
-        User info
-      %table.table
-        %thead
-          %th First Name
-          %th Last Name
-          %th Email
-          %th Account type
-          %th Product count
-          %th Review count
-        %tbody
-          %td= user.firstname
-          %td= user.lastname
-          %td= user.email
-          %td= user.print_admin
-          %td= user.product_count
-          %td= user.review_count
-  .col-md-12
+      / Default panel contents
+      .panel-heading.bolder User info
+      %ul.list-group
+        %li.list-group-item="First name: #{user.firstname}"
+        %li.list-group-item="Last name: #{user.lastname}"
+        %li.list-group-item="Account type: #{user.print_admin}"
+        %li.list-group-item="Email: #{user.email}"
+        %li.list-group-item="Total products: #{user.product_count}"
+        %li.list-group-item="Total reviews: #{user.review_count}"
+        %li.list-group-item="Joined at: #{user.created_at.strftime("%b %d, %Y")}"
+
+  .col-md-8
     .panel.panel-primary
       .panel-heading.bolder
         Last reviews
-      %table.table
-        %thead
-          %th Product
-          %th Review
-        -if user.last_reviews.any? 
-          -user.last_reviews.each do |r| 
-            %tbody
-              %td= r.product.title
-              %td= r.content
+      .panel-body
+        Click on each product to see user's review
+      .panel-body
+        %ul.list-group
+          -if user.last_reviews.any?
+            -user.last_reviews.each do |r|
+              %li.list-group-item          
+                %a.list-group-item= "#{r.product.title} #{user.rated_at(r)}"
+                %ul.review.hidden.well.no-decoration
+                  %li.list-group-item-text= r.content
+                  %br
+                  %li.list-group-item-text
+                    %em="Written at: #{r.created_at.strftime("%d-%m-%y")}"
+                  %br
+                  %li.list-group-item-text= link_to "product link >>", category_product_path(r.product.category, r.product), class: "label label-warning"
+                  
+                  
 %h3
   = "Hi, I'm #{user.firstname} #{user.lastname}"

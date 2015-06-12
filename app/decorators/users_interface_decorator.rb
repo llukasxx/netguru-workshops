@@ -17,4 +17,8 @@ class UsersInterfaceDecorator < Draper::Decorator
     reviews.count
   end
 
+  def rated_at(review)
+    "rated at #{review.rating}/5"
+  end
+
 end
