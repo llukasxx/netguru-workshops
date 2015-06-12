@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def is_owner?(user, product)
-    user.id == product.user_id
+    user.id == product.user_id unless user.nil?
   end
 end
