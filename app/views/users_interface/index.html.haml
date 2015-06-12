@@ -1,2 +1,21 @@
-%h1 UsersInterface#index
-%p Find me in app/views/users_interface/index.html.haml
+.panel.panel-primary
+  / Default panel contents
+  .panel-heading.bolder
+    List of all users
+  / Table
+  %table.table
+    %thead
+      %th First Name
+      %th Last Name
+      %th Email
+      %th Account type
+      %th Profile link
+    -users.each do |u|
+      %tbody
+        %td= u.firstname
+        %td= u.lastname
+        %td= u.email
+        %td= u.print_admin
+        %td= link_to "Click >>", profile_path(u), class: "btn btn-primary", role: "button"
+
+    

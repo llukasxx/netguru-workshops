@@ -1,2 +1,35 @@
-%h1 UsersInterface#show
-%p Find me in app/views/users_interface/show.html.haml
+.row
+  .col-md-12
+    .panel.panel-primary
+      .panel-heading.bolder
+        User info
+      %table.table
+        %thead
+          %th First Name
+          %th Last Name
+          %th Email
+          %th Account type
+          %th Product count
+          %th Review count
+        %tbody
+          %td= user.firstname
+          %td= user.lastname
+          %td= user.email
+          %td= user.print_admin
+          %td= user.product_count
+          %td= user.review_count
+  .col-md-12
+    .panel.panel-primary
+      .panel-heading.bolder
+        Last reviews
+      %table.table
+        %thead
+          %th Product
+          %th Review
+        -if user.last_reviews.any? 
+          -user.last_reviews.each do |r| 
+            %tbody
+              %td= r.product.title
+              %td= r.content
+%h3
+  = "Hi, I'm #{user.firstname} #{user.lastname}"
