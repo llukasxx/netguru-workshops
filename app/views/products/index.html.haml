@@ -4,6 +4,7 @@
     %thead
       %th Name
       %th Category
+      %th Price
       %th Average rating
       %th Total reviews
       %th Action
@@ -11,6 +12,7 @@
       %tbody
         %td= p.title
         %td= link_to "#{p.category.name}", category_path(p.category)
+        %td= p.price
         %td= p.average_rating
         %td= p.reviews.count
         %td

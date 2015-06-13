@@ -1,7 +1,7 @@
 %h1 Editing category
 
 = render 'form'
-
-= link_to 'Show', category
+%br
+= link_to 'Show', category, class: 'btn btn-warning', role: "button"
 \|
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+= link_to '<< Back', categories_path, class: 'btn btn-primary', role: "button"

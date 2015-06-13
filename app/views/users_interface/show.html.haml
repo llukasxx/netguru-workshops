@@ -31,7 +31,3 @@
                     %em="Written at: #{r.created_at.strftime("%d-%m-%y")}"
                   %br
                   %li.list-group-item-text= link_to "product link >>", category_product_path(r.product.category, r.product), class: "label label-warning"
-                  
-                  
-%h3
-  = "Hi, I'm #{user.firstname} #{user.lastname}"

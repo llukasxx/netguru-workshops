@@ -1,25 +1,32 @@
-%p#notice= notice
-%p#error= flash[:error]
+.panel.panel-info
+  .panel-heading.bolder= product.title
+  .panel-body
+    %h4 
+      %b Description:
+    %p= product.description
+  %ul.list-group
+    %li.list-group-item 
+      %b Category:
+      =product.category.name
+    %li.list-group-item
+      %b Price:
+      =product.price
+    %li.list-group-item
+      %b Average rating:
+      =product.average_rating
+    %li.list-group-item
+      %b Total ratings:
+      =product.reviews.count
+    %li.list-group-item
+      %b Added at:
+      =product.created_at.strftime("%d-%m-%y")
 
-%p
-  %b Title:
-  = product.title
-%p
-  %b Description:
-  = product.description
-%p
-  %b Price:
-  = product.price
-
-%p
-  %b Category
-  = product.category.name
 -if is_owner?(current_user, product)
   = link_to 'Edit', edit_category_product_path(category.id, product.id), class: "btn btn-warning", role: "button"
   \|
-= link_to 'Back', category_products_path, class: 'btn btn-primary', role: "button"
+= link_to '<< Back', category_products_path, class: 'btn btn-primary', role: "button"
 
-%h3 Reviews
+%h3 Users reviews
 
 = render reviews
 

@@ -5,12 +5,14 @@
   %table.table
     %thead
       %th Name
+      %th Price
       %th Average rating
       %th Total reviews
       %th Action
     -category.products.each do |p|
       %tbody
         %td= p.title
+        %td= p.price
         %td= p.average_rating
         %td= p.reviews.count
         %td
@@ -23,4 +25,4 @@
 %br
 %br
 
-= link_to 'Back', categories_path, class: 'btn btn-primary', role: "button"
+= link_to '<< Back', categories_path, class: 'btn btn-primary', role: "button"
