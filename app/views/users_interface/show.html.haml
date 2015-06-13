@@ -17,7 +17,10 @@
       .panel-heading.bolder
         Last reviews
       .panel-body
-        Click on each product to see user's review
+        -if user.last_reviews.any?
+          Click on each product to see user's review
+        -else
+          User doesn't have any reviews
       .panel-body
         %ul.list-group
           -if user.last_reviews.any?
