@@ -1,22 +1,24 @@
-%h1 Listing products
+.panel.panel-info
+  .panel-heading.bolder= "All products"
+  %table.table
+    %thead
+      %th Name
+      %th Category
+      %th Average rating
+      %th Total reviews
+      %th Action
+    -products.each do |p|
+      %tbody
+        %td= p.title
+        %td= link_to "#{p.category.name}", category_path(p.category)
+        %td= p.average_rating
+        %td= p.reviews.count
+        %td
+          = link_to 'Show', category_product_path(p.category, p), class: "btn btn-success btn-sm", role: "button"
+          -if is_owner?(current_user, p)
+            = link_to 'Edit', edit_category_product_path(p.category, p), class: "btn btn-warning btn-sm", role: "button"
+            = link_to 'Destroy', category_product_path(p.category, p), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm", role: "button"
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Price
-    %th
-    %th
-    %th
 
-  - products.each do |product|
-    %tr
-      %td= product.title
-      %td= product.description
-      %td= product.price
-      %td= link_to 'Show', category_product_path(product.category, product)
-      -if is_owner?(current_user, product)
-        %td= link_to 'Edit', edit_category_product_path(product.category, product)
-        %td= link_to 'Destroy', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
+%p
+  You can add product only from it's category link.

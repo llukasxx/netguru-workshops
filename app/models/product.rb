@@ -8,7 +8,12 @@ class Product < ActiveRecord::Base
 
   def average_rating
   	rates = reviews.map(&:rating)
-  	rates.sum.to_f / rates.size
+  	avg = (rates.sum.to_f / rates.size).round(2)
+    if avg.nan?
+      0
+    else
+      avg
+    end
   end
 
   private

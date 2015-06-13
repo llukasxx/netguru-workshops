@@ -2,4 +2,11 @@
 
 = render 'form'
 
-= link_to 'Back', category_products_path
+
+%em 
+  This product will be automatically assigned to
+  ="#{category.name} category" 
+%br
+%br
+
+= link_to '<< Back', category_products_path, class: "btn btn-primary", role: "button"

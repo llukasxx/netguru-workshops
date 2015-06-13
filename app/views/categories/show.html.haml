@@ -1,14 +1,25 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = category.name
+.panel.panel-info
+  .panel-heading.bolder= "All #{category.name} products"
+  %table.table
+    %thead
+      %th Name
+      %th Average rating
+      %th Total reviews
+      %th Action
+    -category.products.each do |p|
+      %tbody
+        %td= p.title
+        %td= p.average_rating
+        %td= p.reviews.count
+        %td
+          = link_to 'Show', category_product_path(p.category, p), class: "btn btn-success btn-sm", role: "button"
+          -if is_owner?(current_user, p)
+            = link_to 'Edit', edit_category_product_path(p.category, p), class: "btn btn-warning btn-sm", role: "button"
+            = link_to 'Destroy', category_product_path(p.category, p), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm", role: "button"
 
-%p
-  - category.products.each do |product|
-    = link_to(product.title, category_product_path(product.category, product)) 
-
-= link_to 'New product', new_category_product_path(category), class: "btn btn-success", role: "button"
+= link_to 'New product', new_category_product_path(category), class: "btn btn-lg btn-info", role: "button"
 %br
 %br
 
