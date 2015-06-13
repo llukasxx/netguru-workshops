@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+  before_action :authenticate_user!, only: [:new, :update, :destroy, :create]
   expose(:review)
   expose(:product)
   expose(:category)
