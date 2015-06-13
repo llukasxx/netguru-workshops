@@ -20,7 +20,7 @@ class Product < ActiveRecord::Base
 
   	def two_decimal_places
   		if price.present? && price.to_s.split('.').last.size > 2
-  			errors.add(:price, "Number of decimal points can't be greater than 2")
+  			errors.add(:price, "decimal points can't be greater than 2")
   		end
   	end
 end
