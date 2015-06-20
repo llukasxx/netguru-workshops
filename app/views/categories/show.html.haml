@@ -10,7 +10,7 @@
     -category.products.each do |p|
       %tbody
         %td= p.title
-        %td= p.price
+        %td= number_to_currency(p.price)
         %td= p.average_rating
         %td= p.reviews.count
         %td

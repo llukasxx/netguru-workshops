@@ -10,7 +10,7 @@
       =product.category.name
     %li.list-group-item
       %b Price:
-      =product.price
+      =number_to_currency(product.price)
     %li.list-group-item
       %b Average rating:
       =product.average_rating

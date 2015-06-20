@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
 
   validates_presence_of :title, :description, :price
   validate :two_decimal_places
+  validates :price, numericality: { greater_than_or_equal_to: 0 }
 
   def average_rating
   	rates = reviews.map(&:rating)
