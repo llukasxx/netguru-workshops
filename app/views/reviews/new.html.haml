@@ -1,7 +1,9 @@
-%h3 Compose new review
+.row
+  .col-md-6.col-md-offset-3
+    %h3 Compose new review
 
-= render 'reviews/form'
+    = render 'reviews/form'
 
-%br
+    %br
 
-= link_to "<< Back", category_product_path(category.id, product.id), class: "btn btn-primary", role: "button"
+    = link_to "<< Back", category_product_path(category.id, product.id), class: "btn btn-primary", role: "button"
